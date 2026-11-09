@@ -1,0 +1,201 @@
+{
+	"id": "cca6cfbc-8696-4247-a088-afde2b4219bd",
+	"name": "HUB DE LEITURA",
+	"timestamp": "2026-11-09T19:39:10.825Z",
+	"collection_id": "59444397-cdbf0ff7-cb60-4727-91f4-81d6f71719a6",
+	"folder_id": 0,
+	"environment_id": "59444397-c1268b57-7b82-4321-b79e-6f2c6dab7974",
+	"totalPass": 6,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-11-09T19:39:09.850Z",
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "874e099a-6de3-45de-8d73-71f140b370ea",
+			"name": "Listar todos os livros disponiveis",
+			"url": "http://localhost:3000/api/books?available=true&limit=20&offset=0&orderBy=title&order=ASC",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Deve validar se o status code é 200": true,
+				"Deve validar a propriedade Books": true
+			},
+			"testPassFailCounts": {
+				"Deve validar se o status code é 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deve validar a propriedade Books": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Deve validar se o status code é 200": true,
+					"Deve validar a propriedade Books": true
+				}
+			]
+		},
+		{
+			"id": "c67c9c81-1057-4c2c-a97f-593030a737bf",
+			"name": "Listar livros usando filtro",
+			"url": "http://localhost:3000/api/books?category=Fantasia&available=true&limit=20&offset=0&orderBy=title&order=ASC",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Deve validar se o status code é 200": true,
+				"Deve validar se trouxe o livro Harry Potter": true
+			},
+			"testPassFailCounts": {
+				"Deve validar se o status code é 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deve validar se trouxe o livro Harry Potter": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Deve validar se o status code é 200": true,
+					"Deve validar se trouxe o livro Harry Potter": true
+				}
+			]
+		},
+		{
+			"id": "86fac32b-ff75-48be-8bd4-97034832ac08",
+			"name": "Adicionar novo livro",
+			"url": "http://localhost:3000/api/books",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code é 400": true,
+				"Deve validar a mensagem de erro": true
+			},
+			"testPassFailCounts": {
+				"Status code é 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deve validar a mensagem de erro": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code é 400": true,
+					"Deve validar a mensagem de erro": true
+				}
+			]
+		},
+		{
+			"id": "3924dacb-0f5b-4853-963f-18827b6f5ebf",
+			"name": "Livro atualizado",
+			"url": "http://localhost:3000/api/books/25",
+			"time": 7,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code é 200": false
+			},
+			"testPassFailCounts": {
+				"Status code é 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code é 200": false
+				}
+			]
+		},
+		{
+			"id": "a23cc9d9-353a-46d4-afce-717ecbe8ac0f",
+			"name": "Deletar livro",
+			"url": "http://localhost:3000/api/books/25",
+			"time": 11,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code é 200": false,
+				"Deve validar mensagem de sucesso": false
+			},
+			"testPassFailCounts": {
+				"Status code é 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Deve validar mensagem de sucesso": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code é 200": false,
+					"Deve validar mensagem de sucesso": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 43,
+	"collection": {
+		"requests": [
+			{
+				"id": "874e099a-6de3-45de-8d73-71f140b370ea",
+				"method": "GET"
+			},
+			{
+				"id": "c67c9c81-1057-4c2c-a97f-593030a737bf",
+				"method": "GET"
+			},
+			{
+				"id": "86fac32b-ff75-48be-8bd4-97034832ac08",
+				"method": "POST"
+			},
+			{
+				"id": "3924dacb-0f5b-4853-963f-18827b6f5ebf",
+				"method": "PUT"
+			},
+			{
+				"id": "a23cc9d9-353a-46d4-afce-717ecbe8ac0f",
+				"method": "DELETE"
+			}
+		]
+	}
+}
